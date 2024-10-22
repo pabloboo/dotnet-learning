@@ -17,5 +17,15 @@ namespace GalicianWeatherForecast
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
+
+        protected void Application_BeginRequest(object sender, EventArgs e)
+        {
+            var context = HttpContext.Current;
+            if (context.Request.Url.AbsolutePath == "/")
+            {
+                context.Response.Redirect("~/Prediction/Municipios");
+            }
+        }
+
     }
 }

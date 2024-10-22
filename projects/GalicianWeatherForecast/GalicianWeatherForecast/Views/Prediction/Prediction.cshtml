@@ -1,0 +1,21 @@
+﻿@model GalicianWeatherForecast.Models.Prediction
+@{
+    ViewBag.Title = "Prediction";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Predicción para @Model.predConcello.nome</h1>
+
+@foreach (var dia in Model.predConcello.listaPredDiaConcello)
+{
+    var fecha = DateTime.Parse(dia.dataPredicion);
+
+    <div>
+        <h2>Predicción para el día: @fecha.ToString("dd/MM/yyyy")</h2>
+        <p>Temperatura máxima: @dia.tMax°C</p>
+        <p>Temperatura mínima: @dia.tMin°C</p>
+        <p>Probabilidad de lluvia por la mañana: @dia.pchoiva.manha%</p>
+        <p>Probabilidad de lluvia por la tarde: @dia.pchoiva.tarde%</p>
+        <p>Probabilidad de lluvia por la noche: @dia.pchoiva.noite%</p>
+    </div>
+}

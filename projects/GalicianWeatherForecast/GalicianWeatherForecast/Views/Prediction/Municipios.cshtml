@@ -1,0 +1,20 @@
+﻿
+@model List<GalicianWeatherForecast.Models.Municipio> 
+@{
+    ViewBag.Title = "Municipios";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Municipios</h2>
+
+<table class="table">
+    <tr>
+        <th>Nombre</th>
+    </tr>
+    @foreach (var municipio in Model)
+    {
+        <tr>
+            <td>@Html.ActionLink(municipio.name, "Prediction", "Prediction", new { municipioId = municipio.id }, null)</td>
+        </tr>
+    }
+</table>
