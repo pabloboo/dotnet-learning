@@ -7,3 +7,15 @@ window.addEventListener('scroll', () => {
         }
     });
 });
+
+// Show or hide the scroll indicator
+let hasScrolled = false; // Variable para rastrear si se ha hecho scroll
+
+window.addEventListener('scroll', function() {
+    const scrollIndicator = document.getElementById('scrollIndicator');
+    
+    if (window.scrollY > 0 && !hasScrolled) {
+        scrollIndicator.style.display = 'none';
+        hasScrolled = true;
+    }
+});
