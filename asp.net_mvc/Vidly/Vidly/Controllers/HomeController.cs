@@ -26,5 +26,10 @@ namespace Vidly.Controllers
 
             return View();
         }
+
+        public ActionResult HomeScreen()
+        {
+            return View();
+        }
     }
 }

@@ -10,15 +10,60 @@ namespace Vidly.Controllers
 {
     public class MoviesController : Controller
     {
+        private List<Movie> GetMovies() => new List<Movie>
+        {
+            new Movie { Id = 1, Name = "Shrek!" },
+            new Movie { Id = 2, Name = "Wall-E" }
+        };
+
+        private List<Customer> GetCustomers() => new List<Customer>
+        {
+            new Customer { Id = 1, Name = "Customer 1" },
+            new Customer { Id = 2, Name = "Customer 2" }
+        };
+
+        // GET: Movies
+        [Route("movies")]
+        public ActionResult Movies()
+        {
+            var movies = GetMovies();
+
+            var viewModel = new MovieListViewModel
+            {
+                Movies = movies
+            };
+
+            return View(viewModel);
+        }
+
+        // GET: Movies/Details/id
+        [Route("movies/details/{id}")]
+        public ActionResult Details(int id)
+        {
+            var movies = GetMovies();
+
+            var movie = movies.Find(m => m.Id == id);
+
+            var customers = new List<Customer>();
+            if (movie != null && movie.Name == "Shrek!")
+            {
+                customers = GetCustomers();
+            }
+
+            var viewModel = new RandomMovieViewModel
+            {
+                Movie = movie,
+                Customers = customers
+            };
+
+            return View(viewModel);
+        }
+
         // GET: Movies/Random
         public ActionResult Random()
         {
             var movie = new Movie() { Name = "Shrek!" };
-            var customers = new List<Customer>
-            {
-                new Customer { Name = "Customer 1" },
-                new Customer { Name = "Customer 2" }
-            };
+            var customers = GetCustomers();
 
             var viewModel = new RandomMovieViewModel
             {
