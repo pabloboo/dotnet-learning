@@ -14,9 +14,21 @@ namespace GalicianWeatherForecast.Controllers
 
         // GET: Municipios
         [Route("Prediction/Municipios")]
-        public ActionResult Municipios()
+        public ActionResult Municipios(string sortOrder)
         {
             var municipios = ObtainMunicipios();
+
+            switch(sortOrder)
+            {
+                case "asc":
+                    municipios = municipios.OrderBy(m => m.name).ToList();
+                    break;
+                case "desc":
+                    municipios = municipios.OrderByDescending(m => m.name).ToList();
+                    break;
+                default:
+                    break;
+            }
 
             return View(municipios);
         }

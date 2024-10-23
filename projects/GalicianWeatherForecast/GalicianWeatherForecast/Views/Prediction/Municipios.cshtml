@@ -1,11 +1,17 @@
 ﻿
-@model List<GalicianWeatherForecast.Models.Municipio> 
+@model List<GalicianWeatherForecast.Models.Municipio>
 @{
     ViewBag.Title = "Municipios";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Municipios</h2>
+
+<!-- Buttons to order -->
+<p>
+    <button onclick="location.href='@Url.Action("Municipios", "Prediction", new { sortOrder = "asc" })'">Orden Ascendente</button>
+    <button onclick="location.href='@Url.Action("Municipios", "Prediction", new { sortOrder = "desc" })'">Orden Descendente</button>
+</p>
 
 <table class="table">
     <tr>
