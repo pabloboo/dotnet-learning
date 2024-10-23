@@ -9,13 +9,29 @@
 @foreach (var dia in Model.predConcello.listaPredDiaConcello)
 {
     var fecha = DateTime.Parse(dia.dataPredicion);
+    var scrMorning = "http://www.meteogalicia.gal/datosred/infoweb/meteo/imagenes/meteoros/ceo/" + dia.ceo.manha + ".png";
 
     <div>
         <h2>Predicción para el día: @fecha.ToString("dd/MM/yyyy")</h2>
+        <p>
+            Estado del cielo por la mañana:
+            @Html.Action("SkyText", "Prediction", new { skyId = dia.ceo.manha })
+            <img src="http://www.meteogalicia.gal/datosred/infoweb/meteo/imagenes/meteoros/ceo/@(dia.ceo.manha).png" alt="Cielo mañana" />
+        </p>
+        <p>Probabilidad de lluvia por la mañana: @dia.pchoiva.manha%</p>
+        <p>
+            Estado del cielo por la tarde:
+            @Html.Action("SkyText", "Prediction", new { skyId = dia.ceo.tarde })
+            <img src="http://www.meteogalicia.gal/datosred/infoweb/meteo/imagenes/meteoros/ceo/@(dia.ceo.tarde).png" alt="Cielo tarde" />
+        </p>
+        <p>Probabilidad de lluvia por la tarde: @dia.pchoiva.tarde%</p>
+        <p>
+            Estado del cielo por la noche:
+            @Html.Action("SkyText", "Prediction", new { skyId = dia.ceo.noite })
+            <img src="http://www.meteogalicia.gal/datosred/infoweb/meteo/imagenes/meteoros/ceo/@(dia.ceo.noite).png" alt="Cielo noche" />
+        </p>
+        <p>Probabilidad de lluvia por la noche: @dia.pchoiva.noite%</p>
         <p>Temperatura máxima: @dia.tMax°C</p>
         <p>Temperatura mínima: @dia.tMin°C</p>
-        <p>Probabilidad de lluvia por la mañana: @dia.pchoiva.manha%</p>
-        <p>Probabilidad de lluvia por la tarde: @dia.pchoiva.tarde%</p>
-        <p>Probabilidad de lluvia por la noche: @dia.pchoiva.noite%</p>
     </div>
 }
