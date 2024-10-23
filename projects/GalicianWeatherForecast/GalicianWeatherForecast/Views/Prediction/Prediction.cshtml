@@ -18,19 +18,43 @@
             @Html.Action("SkyText", "Prediction", new { skyId = dia.ceo.manha })
             <img src="http://www.meteogalicia.gal/datosred/infoweb/meteo/imagenes/meteoros/ceo/@(dia.ceo.manha).png" alt="Cielo mañana" />
         </p>
-        <p>Probabilidad de lluvia por la mañana: @dia.pchoiva.manha%</p>
+        @if (dia.pchoiva.manha == -9999)
+        {
+            <p>Probabilidad de lluvia por la mañana: descoñecido</p>
+        }
+        else
+        {
+            <p>Probabilidad de lluvia por la mañana: @dia.pchoiva.manha%</p>
+        }
+
         <p>
             Estado del cielo por la tarde:
             @Html.Action("SkyText", "Prediction", new { skyId = dia.ceo.tarde })
             <img src="http://www.meteogalicia.gal/datosred/infoweb/meteo/imagenes/meteoros/ceo/@(dia.ceo.tarde).png" alt="Cielo tarde" />
         </p>
-        <p>Probabilidad de lluvia por la tarde: @dia.pchoiva.tarde%</p>
+        @if (dia.pchoiva.tarde == -9999)
+        {
+            <p>Probabilidad de lluvia por la tarde: descoñecido</p>
+        }
+        else
+        {
+            <p>Probabilidad de lluvia por la tarde: @dia.pchoiva.tarde%</p>
+        }
+
         <p>
             Estado del cielo por la noche:
             @Html.Action("SkyText", "Prediction", new { skyId = dia.ceo.noite })
             <img src="http://www.meteogalicia.gal/datosred/infoweb/meteo/imagenes/meteoros/ceo/@(dia.ceo.noite).png" alt="Cielo noche" />
         </p>
-        <p>Probabilidad de lluvia por la noche: @dia.pchoiva.noite%</p>
+        @if (dia.pchoiva.noite == -9999)
+        {
+            <p>Probabilidad de lluvia por la noche: descoñecido</p>
+        }
+        else
+        {
+            <p>Probabilidad de lluvia por la noche: @dia.pchoiva.noite%</p>
+        }
+
         <p>Temperatura máxima: @dia.tMax°C</p>
         <p>Temperatura mínima: @dia.tMin°C</p>
     </div>

@@ -1,0 +1,357 @@
+﻿using GalicianWeatherForecast.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace GalicianWeatherForecast.Service
+{
+    public class MunicipioService
+    {
+        public string ObtainMunicipioId(string municipio)
+        {
+            var municipios = ObtainMunicipios();
+
+            foreach (var municipioVar in municipios)
+            {
+                if (municipioVar.name == municipio)
+                {
+                    return municipioVar.id;
+                }
+            }
+
+            return null;
+        }
+
+        public List<Municipio> ObtainMunicipios()
+        {
+            var municipios = new List<Municipio>();
+
+            // Lista de municipios
+
+            // A Coruña
+            municipios.Add(new Municipio() { id = "15001", name = "Abegondo" });
+            municipios.Add(new Municipio() { id = "15002", name = "Ames" });
+            municipios.Add(new Municipio() { id = "15003", name = "Aranga" });
+            municipios.Add(new Municipio() { id = "15004", name = "Ares" });
+            municipios.Add(new Municipio() { id = "15005", name = "Arteixo" });
+            municipios.Add(new Municipio() { id = "15006", name = "Arzúa" });
+            municipios.Add(new Municipio() { id = "15007", name = "A Baña" });
+            municipios.Add(new Municipio() { id = "15008", name = "Bergondo" });
+            municipios.Add(new Municipio() { id = "15009", name = "Betanzos" });
+            municipios.Add(new Municipio() { id = "15010", name = "Boimorto" });
+            municipios.Add(new Municipio() { id = "15011", name = "Boiro" });
+            municipios.Add(new Municipio() { id = "15012", name = "Boqueixón" });
+            municipios.Add(new Municipio() { id = "15013", name = "Brión" });
+            municipios.Add(new Municipio() { id = "15014", name = "Cabana de Bergantiños" });
+            municipios.Add(new Municipio() { id = "15015", name = "Cabanas" });
+            municipios.Add(new Municipio() { id = "15016", name = "Camariñas" });
+            municipios.Add(new Municipio() { id = "15017", name = "Cambre" });
+            municipios.Add(new Municipio() { id = "15018", name = "A Capela" });
+            municipios.Add(new Municipio() { id = "15019", name = "Carballo" });
+            municipios.Add(new Municipio() { id = "15901", name = "Cariño" });
+            municipios.Add(new Municipio() { id = "15020", name = "Carnota" });
+            municipios.Add(new Municipio() { id = "15021", name = "Carral" });
+            municipios.Add(new Municipio() { id = "15022", name = "Cedeira" });
+            municipios.Add(new Municipio() { id = "15023", name = "Cee" });
+            municipios.Add(new Municipio() { id = "15024", name = "Cerceda" });
+            municipios.Add(new Municipio() { id = "15025", name = "Cerdido" });
+            municipios.Add(new Municipio() { id = "15027", name = "Coirós" });
+            municipios.Add(new Municipio() { id = "15028", name = "Corcubión" });
+            municipios.Add(new Municipio() { id = "15029", name = "Coristanco" });
+            municipios.Add(new Municipio() { id = "15030", name = "A Coruña" });
+            municipios.Add(new Municipio() { id = "15031", name = "Culleredo" });
+            municipios.Add(new Municipio() { id = "15032", name = "Curtis" });
+            municipios.Add(new Municipio() { id = "15033", name = "Dodro" });
+            municipios.Add(new Municipio() { id = "15034", name = "Dumbría" });
+            municipios.Add(new Municipio() { id = "15035", name = "Fene" });
+            municipios.Add(new Municipio() { id = "15036", name = "Ferrol" });
+            municipios.Add(new Municipio() { id = "15037", name = "Fisterra" });
+            municipios.Add(new Municipio() { id = "15038", name = "Frades" });
+            municipios.Add(new Municipio() { id = "15039", name = "Irixoa" });
+            municipios.Add(new Municipio() { id = "15040", name = "Laxe" });
+            municipios.Add(new Municipio() { id = "15041", name = "A Laracha" });
+            municipios.Add(new Municipio() { id = "15042", name = "Lousame" });
+            municipios.Add(new Municipio() { id = "15043", name = "Malpica de Bergantiños" });
+            municipios.Add(new Municipio() { id = "15044", name = "Mañón" });
+            municipios.Add(new Municipio() { id = "15045", name = "Mazaricos" });
+            municipios.Add(new Municipio() { id = "15046", name = "Melide" });
+            municipios.Add(new Municipio() { id = "15047", name = "Mesía" });
+            municipios.Add(new Municipio() { id = "15048", name = "Miño" });
+            municipios.Add(new Municipio() { id = "15049", name = "Moeche" });
+            municipios.Add(new Municipio() { id = "15050", name = "Monfero" });
+            municipios.Add(new Municipio() { id = "15051", name = "Mugardos" });
+            municipios.Add(new Municipio() { id = "15052", name = "Muxía" });
+            municipios.Add(new Municipio() { id = "15053", name = "Muros" });
+            municipios.Add(new Municipio() { id = "15054", name = "Narón" });
+            municipios.Add(new Municipio() { id = "15055", name = "Neda" });
+            municipios.Add(new Municipio() { id = "15056", name = "Negreira" });
+            municipios.Add(new Municipio() { id = "15057", name = "Noia" });
+            municipios.Add(new Municipio() { id = "15058", name = "Oleiros" });
+            municipios.Add(new Municipio() { id = "15059", name = "Ordes" });
+            municipios.Add(new Municipio() { id = "15060", name = "Oroso" });
+            municipios.Add(new Municipio() { id = "15061", name = "Ortigueira" });
+            municipios.Add(new Municipio() { id = "15062", name = "Outes" });
+            municipios.Add(new Municipio() { id = "15902", name = "Oza-Cesuras" });
+            municipios.Add(new Municipio() { id = "15064", name = "Paderne" });
+            municipios.Add(new Municipio() { id = "15065", name = "Padrón" });
+            municipios.Add(new Municipio() { id = "15066", name = "O Pino" });
+            municipios.Add(new Municipio() { id = "15067", name = "Pobra do Caramiñal" });
+            municipios.Add(new Municipio() { id = "15068", name = "Ponteceso" });
+            municipios.Add(new Municipio() { id = "15069", name = "Pontedeume" });
+            municipios.Add(new Municipio() { id = "15070", name = "As Pontes de García Rodríguez" });
+            municipios.Add(new Municipio() { id = "15071", name = "Porto do Son" });
+            municipios.Add(new Municipio() { id = "15072", name = "Rianxo" });
+            municipios.Add(new Municipio() { id = "15073", name = "Ribeira" });
+            municipios.Add(new Municipio() { id = "15074", name = "Rois" });
+            municipios.Add(new Municipio() { id = "15075", name = "Sada" });
+            municipios.Add(new Municipio() { id = "15076", name = "San Sadurniño" });
+            municipios.Add(new Municipio() { id = "15077", name = "Santa Comba" });
+            municipios.Add(new Municipio() { id = "15078", name = "Santiago de Compostela" });
+            municipios.Add(new Municipio() { id = "15079", name = "Santiso" });
+            municipios.Add(new Municipio() { id = "15080", name = "Sobrado" });
+            municipios.Add(new Municipio() { id = "15081", name = "As Somozas" });
+            municipios.Add(new Municipio() { id = "15082", name = "Teo" });
+            municipios.Add(new Municipio() { id = "15083", name = "Toques" });
+            municipios.Add(new Municipio() { id = "15084", name = "Tordoia" });
+            municipios.Add(new Municipio() { id = "15085", name = "Touro" });
+            municipios.Add(new Municipio() { id = "15086", name = "Trazo" });
+            municipios.Add(new Municipio() { id = "15087", name = "Valdoviño" });
+            municipios.Add(new Municipio() { id = "15088", name = "Val do Dubra" });
+            municipios.Add(new Municipio() { id = "15089", name = "Vedra" });
+            municipios.Add(new Municipio() { id = "15090", name = "Vilasantar" });
+            municipios.Add(new Municipio() { id = "15091", name = "Vilarmaior" });
+            municipios.Add(new Municipio() { id = "15092", name = "Vimianzo" });
+            municipios.Add(new Municipio() { id = "15093", name = "Zas" });
+
+            // Lugo
+            municipios.Add(new Municipio() { id = "27001", name = "Abadín" });
+            municipios.Add(new Municipio() { id = "27002", name = "Alfoz" });
+            municipios.Add(new Municipio() { id = "27003", name = "Antas de Ulla" });
+            municipios.Add(new Municipio() { id = "27004", name = "Baleira" });
+            municipios.Add(new Municipio() { id = "27901", name = "Baralla" });
+            municipios.Add(new Municipio() { id = "27005", name = "Barreiros" });
+            municipios.Add(new Municipio() { id = "27006", name = "Becerreá" });
+            municipios.Add(new Municipio() { id = "27007", name = "Begonte" });
+            municipios.Add(new Municipio() { id = "27008", name = "Bóveda" });
+            municipios.Add(new Municipio() { id = "27902", name = "Burela" });
+            municipios.Add(new Municipio() { id = "27009", name = "Carballedo" });
+            municipios.Add(new Municipio() { id = "27010", name = "Castro de Rei" });
+            municipios.Add(new Municipio() { id = "27011", name = "Castroverde" });
+            municipios.Add(new Municipio() { id = "27012", name = "Cervantes" });
+            municipios.Add(new Municipio() { id = "27013", name = "Cervo" });
+            municipios.Add(new Municipio() { id = "27016", name = "Chantada" });
+            municipios.Add(new Municipio() { id = "27014", name = "O Corgo" });
+            municipios.Add(new Municipio() { id = "27015", name = "Cospeito" });
+            municipios.Add(new Municipio() { id = "27017", name = "Folgoso do Courel" });
+            municipios.Add(new Municipio() { id = "27018", name = "A Fonsagrada" });
+            municipios.Add(new Municipio() { id = "27019", name = "Foz" });
+            municipios.Add(new Municipio() { id = "27020", name = "Friol" });
+            municipios.Add(new Municipio() { id = "27022", name = "Guitiriz" });
+            municipios.Add(new Municipio() { id = "27023", name = "Guntín" });
+            municipios.Add(new Municipio() { id = "27024", name = "O Incio" });
+            municipios.Add(new Municipio() { id = "27026", name = "Láncara" });
+            municipios.Add(new Municipio() { id = "27027", name = "Lourenzá" });
+            municipios.Add(new Municipio() { id = "27028", name = "Lugo" });
+            municipios.Add(new Municipio() { id = "27029", name = "Meira" });
+            municipios.Add(new Municipio() { id = "27030", name = "Mondoñedo" });
+            municipios.Add(new Municipio() { id = "27031", name = "Monforte de Lemos" });
+            municipios.Add(new Municipio() { id = "27032", name = "Monterroso" });
+            municipios.Add(new Municipio() { id = "27033", name = "Muras" });
+            municipios.Add(new Municipio() { id = "27034", name = "Navia de Suarna" });
+            municipios.Add(new Municipio() { id = "27035", name = "Negueira de Muñiz" });
+            municipios.Add(new Municipio() { id = "27037", name = "As Nogais" });
+            municipios.Add(new Municipio() { id = "27038", name = "Ourol" });
+            municipios.Add(new Municipio() { id = "27039", name = "Outeiro de Rei" });
+            municipios.Add(new Municipio() { id = "27040", name = "Palas de Rei" });
+            municipios.Add(new Municipio() { id = "27041", name = "Pantón" });
+            municipios.Add(new Municipio() { id = "27042", name = "Paradela" });
+            municipios.Add(new Municipio() { id = "27043", name = "O Páramo" });
+            municipios.Add(new Municipio() { id = "27044", name = "A Pastoriza" });
+            municipios.Add(new Municipio() { id = "27045", name = "Pedrafita do Cebreiro" });
+            municipios.Add(new Municipio() { id = "27047", name = "A Pobra do Brollón" });
+            municipios.Add(new Municipio() { id = "27046", name = "Pol" });
+            municipios.Add(new Municipio() { id = "27048", name = "A Pontenova" });
+            municipios.Add(new Municipio() { id = "27049", name = "Portomarín" });
+            municipios.Add(new Municipio() { id = "27050", name = "Quiroga" });
+            municipios.Add(new Municipio() { id = "27056", name = "Rábade" });
+            municipios.Add(new Municipio() { id = "27051", name = "Ribadeo" });
+            municipios.Add(new Municipio() { id = "27052", name = "Ribas de Sil" });
+            municipios.Add(new Municipio() { id = "27053", name = "Ribeira de Piquín" });
+            municipios.Add(new Municipio() { id = "27054", name = "Riotorto" });
+            municipios.Add(new Municipio() { id = "27055", name = "Samos" });
+            municipios.Add(new Municipio() { id = "27057", name = "Sarria" });
+            municipios.Add(new Municipio() { id = "27058", name = "O Saviñao" });
+            municipios.Add(new Municipio() { id = "27059", name = "Sober" });
+            municipios.Add(new Municipio() { id = "27060", name = "Taboada" });
+            municipios.Add(new Municipio() { id = "27061", name = "Trabada" });
+            municipios.Add(new Municipio() { id = "27062", name = "Triacastela" });
+            municipios.Add(new Municipio() { id = "27063", name = "O Valadouro" });
+            municipios.Add(new Municipio() { id = "27064", name = "O Vicedo" });
+            municipios.Add(new Municipio() { id = "27065", name = "Vilalba" });
+            municipios.Add(new Municipio() { id = "27066", name = "Viveiro" });
+            municipios.Add(new Municipio() { id = "27021", name = "Xermade" });
+            municipios.Add(new Municipio() { id = "27025", name = "Xove" });
+
+            // Ourense
+            municipios.Add(new Municipio() { id = "32001", name = "Allariz" });
+            municipios.Add(new Municipio() { id = "32002", name = "Amoeiro" });
+            municipios.Add(new Municipio() { id = "32003", name = "A Arnoia" });
+            municipios.Add(new Municipio() { id = "32004", name = "Avión" });
+            municipios.Add(new Municipio() { id = "32005", name = "Baltar" });
+            municipios.Add(new Municipio() { id = "32006", name = "Bande" });
+            municipios.Add(new Municipio() { id = "32007", name = "Baños de Molgas" });
+            municipios.Add(new Municipio() { id = "32008", name = "Barbadás" });
+            municipios.Add(new Municipio() { id = "32009", name = "O Barco de Valdeorras" });
+            municipios.Add(new Municipio() { id = "32010", name = "Beade" });
+            municipios.Add(new Municipio() { id = "32011", name = "Beariz" });
+            municipios.Add(new Municipio() { id = "32012", name = "Os Blancos" });
+            municipios.Add(new Municipio() { id = "32013", name = "Boborás" });
+            municipios.Add(new Municipio() { id = "32014", name = "A Bola" });
+            municipios.Add(new Municipio() { id = "32015", name = "O Bolo" });
+            municipios.Add(new Municipio() { id = "32016", name = "Calvos de Randín" });
+            municipios.Add(new Municipio() { id = "32018", name = "Carballeda de Avia" });
+            municipios.Add(new Municipio() { id = "32017", name = "Carballeda de Valdeorras" });
+            municipios.Add(new Municipio() { id = "32019", name = "O Carballiño" });
+            municipios.Add(new Municipio() { id = "32020", name = "Cartelle" });
+            municipios.Add(new Municipio() { id = "32022", name = "Castrelo de Miño" });
+            municipios.Add(new Municipio() { id = "32021", name = "Castrelo do Val" });
+            municipios.Add(new Municipio() { id = "32023", name = "Castro Caldelas" });
+            municipios.Add(new Municipio() { id = "32024", name = "Celanova" });
+            municipios.Add(new Municipio() { id = "32025", name = "Cenlle" });
+            municipios.Add(new Municipio() { id = "32029", name = "Chandrexa de Queixa" });
+            municipios.Add(new Municipio() { id = "32026", name = "Coles" });
+            municipios.Add(new Municipio() { id = "32027", name = "Cortegada" });
+            municipios.Add(new Municipio() { id = "32028", name = "Cualedro" });
+            municipios.Add(new Municipio() { id = "32030", name = "Entrimo" });
+            municipios.Add(new Municipio() { id = "32031", name = "Esgos" });
+            municipios.Add(new Municipio() { id = "32033", name = "Gomesende" });
+            municipios.Add(new Municipio() { id = "32034", name = "A Gudiña" });
+            municipios.Add(new Municipio() { id = "32035", name = "O Irixo" });
+            municipios.Add(new Municipio() { id = "32038", name = "Larouco" });
+            municipios.Add(new Municipio() { id = "32039", name = "Laza" });
+            municipios.Add(new Municipio() { id = "32040", name = "Leiro" });
+            municipios.Add(new Municipio() { id = "32041", name = "Lobeira" });
+            municipios.Add(new Municipio() { id = "32042", name = "Lobios" });
+            municipios.Add(new Municipio() { id = "32043", name = "Maceda" });
+            municipios.Add(new Municipio() { id = "32044", name = "Manzaneda" });
+            municipios.Add(new Municipio() { id = "32045", name = "Maside" });
+            municipios.Add(new Municipio() { id = "32046", name = "Melón" });
+            municipios.Add(new Municipio() { id = "32047", name = "A Merca" });
+            municipios.Add(new Municipio() { id = "32048", name = "A Mezquita" });
+            municipios.Add(new Municipio() { id = "32049", name = "Montederramo" });
+            municipios.Add(new Municipio() { id = "32050", name = "Monterrei" });
+            municipios.Add(new Municipio() { id = "32051", name = "Muíños" });
+            municipios.Add(new Municipio() { id = "32052", name = "Nogueira de Ramuín" });
+            municipios.Add(new Municipio() { id = "32053", name = "Oímbra" });
+            municipios.Add(new Municipio() { id = "32054", name = "Ourense" });
+            municipios.Add(new Municipio() { id = "32055", name = "Paderne de Allariz" });
+            municipios.Add(new Municipio() { id = "32056", name = "Padrenda" });
+            municipios.Add(new Municipio() { id = "32057", name = "Parada de Sil" });
+            municipios.Add(new Municipio() { id = "32058", name = "O Pereiro de Aguiar" });
+            municipios.Add(new Municipio() { id = "32059", name = "A Peroxa" });
+            municipios.Add(new Municipio() { id = "32060", name = "Petín" });
+            municipios.Add(new Municipio() { id = "32061", name = "Piñor" });
+            municipios.Add(new Municipio() { id = "32063", name = "A Pobra de Trives" });
+            municipios.Add(new Municipio() { id = "32064", name = "Pontedeva" });
+            municipios.Add(new Municipio() { id = "32062", name = "Porqueira" });
+            municipios.Add(new Municipio() { id = "32065", name = "Punxín" });
+            municipios.Add(new Municipio() { id = "32066", name = "Quintela de Leirado" });
+            municipios.Add(new Municipio() { id = "32067", name = "Rairiz de Veiga" });
+            municipios.Add(new Municipio() { id = "32068", name = "Ramirás" });
+            municipios.Add(new Municipio() { id = "32069", name = "Ribadavia" });
+            municipios.Add(new Municipio() { id = "32071", name = "Riós" });
+            municipios.Add(new Municipio() { id = "32072", name = "A Rúa" });
+            municipios.Add(new Municipio() { id = "32073", name = "Rubiá" });
+            municipios.Add(new Municipio() { id = "32074", name = "San Amaro" });
+            municipios.Add(new Municipio() { id = "32075", name = "San Cibrao das Viñas" });
+            municipios.Add(new Municipio() { id = "32076", name = "San Cristovo de Cea" });
+            municipios.Add(new Municipio() { id = "32070", name = "San Xoán de Río" });
+            municipios.Add(new Municipio() { id = "32077", name = "Sandiás" });
+            municipios.Add(new Municipio() { id = "32078", name = "Sarreaus" });
+            municipios.Add(new Municipio() { id = "32079", name = "Taboadela" });
+            municipios.Add(new Municipio() { id = "32080", name = "A Teixeira" });
+            municipios.Add(new Municipio() { id = "32081", name = "Toén" });
+            municipios.Add(new Municipio() { id = "32082", name = "Trasmiras" });
+            municipios.Add(new Municipio() { id = "32083", name = "A Veiga" });
+            municipios.Add(new Municipio() { id = "32084", name = "Verea" });
+            municipios.Add(new Municipio() { id = "32085", name = "Verín" });
+            municipios.Add(new Municipio() { id = "32086", name = "Viana do Bolo" });
+            municipios.Add(new Municipio() { id = "32087", name = "Vilamarín" });
+            municipios.Add(new Municipio() { id = "32088", name = "Vilamartín de Valdeorras" });
+            municipios.Add(new Municipio() { id = "32089", name = "Vilar de Barrio" });
+            municipios.Add(new Municipio() { id = "32090", name = "Vilar de Santos" });
+            municipios.Add(new Municipio() { id = "32091", name = "Vilardevós" });
+            municipios.Add(new Municipio() { id = "32092", name = "Vilariño de Conso" });
+            municipios.Add(new Municipio() { id = "32032", name = "Xinzo de Limia" });
+            municipios.Add(new Municipio() { id = "32036", name = "Xunqueira de Ambía" });
+            municipios.Add(new Municipio() { id = "32037", name = "Xunqueira de Espadanedo" });
+
+            // Pontevedra
+            municipios.Add(new Municipio() { id = "36020", name = "Agolada" });
+            municipios.Add(new Municipio() { id = "36001", name = "Arbo" });
+            municipios.Add(new Municipio() { id = "36003", name = "Baiona" });
+            municipios.Add(new Municipio() { id = "36002", name = "Barro" });
+            municipios.Add(new Municipio() { id = "36004", name = "Bueu" });
+            municipios.Add(new Municipio() { id = "36005", name = "Caldas de Reis" });
+            municipios.Add(new Municipio() { id = "36006", name = "Cambados" });
+            municipios.Add(new Municipio() { id = "36007", name = "Campo Lameiro" });
+            municipios.Add(new Municipio() { id = "36008", name = "Cangas" });
+            municipios.Add(new Municipio() { id = "36009", name = "A Cañiza" });
+            municipios.Add(new Municipio() { id = "36010", name = "Catoira" });
+            municipios.Add(new Municipio() { id = "36902", name = "Cerdedo-Cotobade" });
+            municipios.Add(new Municipio() { id = "36013", name = "Covelo" });
+            municipios.Add(new Municipio() { id = "36014", name = "Crecente" });
+            municipios.Add(new Municipio() { id = "36015", name = "Cuntis" });
+            municipios.Add(new Municipio() { id = "36016", name = "Dozón" });
+            municipios.Add(new Municipio() { id = "36017", name = "A Estrada" });
+            municipios.Add(new Municipio() { id = "36018", name = "Forcarei" });
+            municipios.Add(new Municipio() { id = "36019", name = "Fornelos de Montes" });
+            municipios.Add(new Municipio() { id = "36021", name = "Gondomar" });
+            municipios.Add(new Municipio() { id = "36022", name = "O Grove" });
+            municipios.Add(new Municipio() { id = "36023", name = "A Guarda" });
+            municipios.Add(new Municipio() { id = "36901", name = "A Illa de Arousa" });
+            municipios.Add(new Municipio() { id = "36024", name = "Lalín" });
+            municipios.Add(new Municipio() { id = "36025", name = "A Lama" });
+            municipios.Add(new Municipio() { id = "36026", name = "Marín" });
+            municipios.Add(new Municipio() { id = "36027", name = "Meaño" });
+            municipios.Add(new Municipio() { id = "36028", name = "Meis" });
+            municipios.Add(new Municipio() { id = "36029", name = "Moaña" });
+            municipios.Add(new Municipio() { id = "36030", name = "Mondariz" });
+            municipios.Add(new Municipio() { id = "36031", name = "Mondariz-Balneario" });
+            municipios.Add(new Municipio() { id = "36032", name = "Moraña" });
+            municipios.Add(new Municipio() { id = "36033", name = "Mos" });
+            municipios.Add(new Municipio() { id = "36034", name = "As Neves" });
+            municipios.Add(new Municipio() { id = "36035", name = "Nigrán" });
+            municipios.Add(new Municipio() { id = "36036", name = "Oia" });
+            municipios.Add(new Municipio() { id = "36037", name = "Pazos de Borbén" });
+            municipios.Add(new Municipio() { id = "36041", name = "Poio" });
+            municipios.Add(new Municipio() { id = "36043", name = "Ponte Caldelas" });
+            municipios.Add(new Municipio() { id = "36042", name = "Ponteareas" });
+            municipios.Add(new Municipio() { id = "36044", name = "Pontecesures" });
+            municipios.Add(new Municipio() { id = "36038", name = "Pontevedra" });
+            municipios.Add(new Municipio() { id = "36039", name = "O Porriño" });
+            municipios.Add(new Municipio() { id = "36040", name = "Portas" });
+            municipios.Add(new Municipio() { id = "36045", name = "Redondela" });
+            municipios.Add(new Municipio() { id = "36046", name = "Ribadumia" });
+            municipios.Add(new Municipio() { id = "36047", name = "Rodeiro" });
+            municipios.Add(new Municipio() { id = "36048", name = "O Rosal" });
+            municipios.Add(new Municipio() { id = "36049", name = "Salceda de Caselas" });
+            municipios.Add(new Municipio() { id = "36050", name = "Salvaterra de Miño" });
+            municipios.Add(new Municipio() { id = "36051", name = "Sanxenxo" });
+            municipios.Add(new Municipio() { id = "36052", name = "Silleda" });
+            municipios.Add(new Municipio() { id = "36053", name = "Soutomaior" });
+            municipios.Add(new Municipio() { id = "36054", name = "Tomiño" });
+            municipios.Add(new Municipio() { id = "36055", name = "Tui" });
+            municipios.Add(new Municipio() { id = "36056", name = "Valga" });
+            municipios.Add(new Municipio() { id = "36057", name = "Vigo" });
+            municipios.Add(new Municipio() { id = "36059", name = "Vila de Cruces" });
+            municipios.Add(new Municipio() { id = "36058", name = "Vilaboa" });
+            municipios.Add(new Municipio() { id = "36060", name = "Vilagarcía de Arousa" });
+            municipios.Add(new Municipio() { id = "36061", name = "Vilanova de Arousa" });
+
+            return municipios;
+
+        }
+    }
+}

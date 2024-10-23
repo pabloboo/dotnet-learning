@@ -7,6 +7,16 @@
 
 <h2>Municipios</h2>
 
+<!-- Search field -->
+<div class="mb-3">
+    <form method="get" action="@Url.Action("Municipios", "Prediction")" class="d-flex">
+        <input type="text" name="searchTerm" placeholder="Buscar por Concello" class="form-control me-2" style="font-size: 1.2rem; height: 50px;" />
+        <button type="submit" class="btn btn-primary" style="height: 50px; font-size: 1.2rem;">Buscar</button>
+    </form>
+</div>
+
+<p>Número de municipios: @Model.Count</p>
+
 <!-- Buttons to order -->
 <p>
     <button onclick="location.href='@Url.Action("Municipios", "Prediction", new { sortOrder = "asc" })'">Orden Ascendente</button>
