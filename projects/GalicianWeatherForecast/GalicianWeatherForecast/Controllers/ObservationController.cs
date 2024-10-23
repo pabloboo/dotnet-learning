@@ -19,7 +19,7 @@ namespace GalicianWeatherForecast.Controllers
 
         // GET: Observation/Camaras
         [Route("Observation/Camaras")]
-        public ActionResult Camaras()
+        public ActionResult Camaras(string searchTerm = null)
         {
             var url = "https://servizos.meteogalicia.gal/mgrss/observacion/jsonCamaras.action?request_locale=gl";
             var client = new HttpClient();
@@ -31,6 +31,14 @@ namespace GalicianWeatherForecast.Controllers
                 var repsonse = client.GetAsync(endpoint).Result;
                 var json = repsonse.Content.ReadAsStringAsync().Result;
                 listaDeCamaras = JsonConvert.DeserializeObject<ListaDeCamaras>(json);
+
+                // Filter by concello
+                if (!string.IsNullOrEmpty(searchTerm))
+                {
+                    listaDeCamaras.ListaCamaras = listaDeCamaras.ListaCamaras
+                        .Where(c => c.Concello.IndexOf(searchTerm, StringComparison.OrdinalIgnoreCase) >= 0)
+                        .ToList();
+                }
             }
             catch (Exception e)
             {

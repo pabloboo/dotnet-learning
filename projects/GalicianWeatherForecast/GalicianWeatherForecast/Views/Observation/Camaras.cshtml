@@ -6,6 +6,14 @@
 
 <h2>Camaras</h2>
 
+<!-- Search field -->
+<div class="mb-3">
+    <form method="get" action="@Url.Action("Camaras", "Observation")" class="d-flex">
+        <input type="text" name="searchTerm" placeholder="Buscar por Concello" class="form-control me-2" style="font-size: 1.2rem; height: 50px;" />
+        <button type="submit" class="btn btn-primary" style="height: 50px; font-size: 1.2rem;">Buscar</button>
+    </form>
+</div>
+
 <p>Número de cámaras: @Model.ListaCamaras.Count</p>
 
 @foreach (var camera in Model.ListaCamaras)
