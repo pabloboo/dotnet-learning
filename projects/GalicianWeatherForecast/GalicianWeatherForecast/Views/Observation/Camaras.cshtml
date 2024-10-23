@@ -1,0 +1,21 @@
+﻿@model GalicianWeatherForecast.Models.ListaDeCamaras
+@{
+    ViewBag.Title = "Camaras";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Camaras</h2>
+
+<p>Número de cámaras: @Model.ListaCamaras.Count</p>
+
+@foreach (var camera in Model.ListaCamaras)
+{
+    var fecha = DateTime.Parse(camera.DataUltimaAct);
+    <div style="margin-bottom: 80px">
+        <h1>@camera.Concello - @camera.Provincia</h1>
+        <p>Data última actualización: @fecha.ToString("dd/MM/yyyy")</p>
+        <button onclick="location.href='@Url.Action("Prediction", "Prediction", new { municipioId = camera.IdConcello }, null)'" class="btn btn-primary">Ver predicción</button>
+        <br /><br />
+        <img src="@camera.ImaxeCamara" width="800" />
+    </div>
+}

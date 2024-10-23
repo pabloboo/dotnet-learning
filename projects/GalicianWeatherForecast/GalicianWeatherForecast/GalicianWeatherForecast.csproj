@@ -120,11 +120,14 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ObservationController.cs" />
     <Compile Include="Controllers\PredictionController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Camara.cs" />
     <Compile Include="Models\Ceo.cs" />
+    <Compile Include="Models\ListaDeCamaras.cs" />
     <Compile Include="Models\Municipio.cs" />
     <Compile Include="Models\Pchoiva.cs" />
     <Compile Include="Models\PredConcello.cs" />
@@ -185,6 +188,8 @@
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Views\Prediction\Prediction.cshtml" />
     <Content Include="Views\Prediction\Municipios.cshtml" />
+    <Content Include="Views\Observation\Index.cshtml" />
+    <Content Include="Views\Observation\Camaras.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
