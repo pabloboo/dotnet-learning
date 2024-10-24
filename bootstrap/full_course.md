@@ -99,7 +99,7 @@ Check also official documentation on [typography](https://getbootstrap.com/docs/
 
 Bootstrap also has predefined styles.
 
-Headings also are responsive, the text size changes a little on different screen sizes. You can also give a paragraph the class "h1" in case you don't want to use the <h1> tag element.
+Headings also are responsive, the text size changes a little on different screen sizes. You can also give a paragraph the class "h1" in case you don't want to use the <h1></h1> tag element.
 
 We also have inline text elements like "<em></em>" for bold text and <mark></mark> for highlighted text.
 
@@ -210,3 +210,25 @@ You can also easily add validation labels.
 # Approach
 
 When using a new component search the official documentation and copy the basic use case. Then you can remove or change elements so it suits your needs and also read the documentation if you want to add some styles.
+
+# Landing page project
+
+The project example is places on ./landing/index.html.
+
+Install bootstrap via CDN link and script references.
+
+Search for the navbar and change the theme of the navbar to dark.
+
+Add [jumbotron](https://getbootstrap.com/docs/4.0/components/jumbotron/) which is a lightweight, flexible component for showcasing hero unit style content.
+
+TIP: For writing code with Emmet abbreaviations you start with a dot and press the tab keyboard when the instructions are ready. For example, for faster typing a div with a container class just type ".container" and press the tab keyboard. For adding a paragraph with the class mt-4 you can type p.mt-4 and press the tab keyword.
+
+TIP: For adding Lorem ipsum just type LoremX where X is the length of the text and press the enter keyword.
+
+Add a [Card group](https://getbootstrap.com/docs/5.3/components/card/#card-groups).
+
+Add a [Form](https://getbootstrap.com/docs/5.3/forms/overview/) below the card group.
+
+Search for and add a [Bootstrap footer](https://getbootstrap.com/docs/5.2/examples/footers/).
+
+Publish your page simply by downloading [mdb](https://mdbgo.com/) and typing "mdb publish" on the commandline on the folder where you have your index.html.
