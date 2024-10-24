@@ -16,14 +16,19 @@
 
 <p>Número de cámaras: @Model.ListaCamaras.Count</p>
 
-@foreach (var camera in Model.ListaCamaras)
-{
-    var fecha = DateTime.Parse(camera.DataUltimaAct);
-    <div style="margin-bottom: 80px">
-        <h1>@camera.Concello - @camera.Provincia</h1>
-        <p>Data última actualización: @fecha.ToString("dd/MM/yyyy")</p>
-        <button onclick="location.href='@Url.Action("Prediction", "Prediction", new { municipioId = camera.IdConcello }, null)'" class="btn btn-primary">Ver predicción</button>
-        <br /><br />
-        <img src="@camera.ImaxeCamara" width="800" />
-    </div>
-}
+<div class="row">
+    @foreach (var camera in Model.ListaCamaras)
+    {
+        var fecha = DateTime.Parse(camera.DataUltimaAct);
+        <div class="col-sm-12 col-md-6 col-lg-4">
+            <div class="card mt-3" style="width: 100%;">
+                <img src="@camera.ImaxeCamara" class="card-img-top img-fluid" style="width: 100%;" alt="Imaxe cámara">
+                <div class="card-body">
+                    <h5 class="card-title">@camera.Concello - @camera.Provincia</h5>
+                    <p class="card-text">Data última actualización: @fecha.ToString("dd/MM/yyyy")</p>
+                    <a href="@Url.Action("Prediction", "Prediction", new { municipioId = camera.IdConcello }, null)" class="btn btn-primary">Ver predicción</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
