@@ -20,6 +20,8 @@ Model first: we create an UML diagram and then EF generates domain classes and d
 
 # Database-first workflow in action
 
+First install [SQL Server Management Studio 2016](https://sqlserverbuilds.blogspot.com/2018/01/sql-server-management-studio-ssms.html) and when the installation is finished copy the sql server name.
+
 In SQL Server Management Studio create a new table inside DatabaseFirstDemo database.
 
 Every time we make a change to our database we need to generate a change script so we can store them in the repository and run them on any database to bring it to the newer version. To do that on SQL Server Management Studio press the save change script icon and name the file "0001 - Create Posts table.sql" (sequence number - description).
@@ -75,11 +77,11 @@ Specify the connection string to the database: go to App.config and at the end o
 
 ```c#
 <connectionStrings>
-    <add name="BlogDbContext" connectionString="data source=.\SQLEXPRESS; initial catalog=CodeFirstDemo; integrated security=SSPI" providerName="System.Data.SqlClient">
+    <add name="BlogDbContext" connectionString="data source=.\SQLEXPRESS; initial catalog=CodeFirstDemo; integrated security=SSPI" providerName="System.Data.SqlClient"/>
 </connectionStrings>
 ```
 
-Where initial catalog is the database name and integrated security means that we are using windows authentication.
+Where BlogDbContext is the context, .\SQLEXPRESS is the SQL Server name, initial catalog is the database name and integrated security means that we are using windows authentication.
 
 Go to package manager console -> enable code first migrations inserting the command "enable-migrations".
 
@@ -87,7 +89,30 @@ The previous steps are only made once. When we want to make changes we change ou
 
 The next step is to run it. When we run it EF looks at our database, takes the current version and then figures out what migrations need to run on the database to bring it up to date.
 
-To run the migration go to Package Manager Console and insert the command "Update-Database" -> Check that the command executed correctly -> Go to SQL Server Management Studio -> Refresh the databases -> Check that the tables were created correctly.
+To run the migration go to Package Manager Console insert the command "add-migration migrationDescription" (check in the Migrations/ folder taht a new file was created and that it contains the instructions to the db) and then and insert the command "Update-Database" -> Check that the command executed correctly -> Go to SQL Server Management Studio -> Refresh the databases -> Check that the tables were created correctly.
+
+If it doesn't work you might need to specify the DbContext with this command "Enable-Migrations -ContextTypeName DineFind.Infrastructure.Data.DineFindDbContext -Force".
+
+In my case I had to add the following code to Web.config:
+
+```c#
+  <entityFramework>
+	  <defaultConnectionFactory type="System.Data.Entity.Infrastructure.LocalDbConnectionFactory, EntityFramework" />
+    <providers>
+      <provider invariantName="System.Data.SqlClient" type="System.Data.Entity.SqlServer.SqlProviderServices, EntityFramework.SqlServer" />
+    </providers>
+  </entityFramework>
+    <connectionStrings>
+	    <add name="DineFindDbContext" connectionString="data source=DESKTOP-1V8JL4R\SQLEXPRESS; initial catalog=DineFind; integrated security=SSPI" providerName="System.Data.SqlClient"/>
+    </connectionStrings>
+```
+
+And then on package manager console the following commands:
+
+```
+Add-Migration AddedRestaurant
+Update-Database -ConnectionStringName "DineFindDbContext"
+```
 
 # Database-First or Code-First
 
