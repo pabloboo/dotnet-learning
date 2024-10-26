@@ -19,5 +19,10 @@ namespace DineFind.Services
         {
             return _restaurantRepository.Search(criteria);
         }
+
+        public Restaurant GetRestaurantById(int id)
+        {
+            return _restaurantRepository.GetById(id);
+        }
     }
 }
