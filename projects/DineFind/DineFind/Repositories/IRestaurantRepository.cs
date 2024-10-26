@@ -1,5 +1,5 @@
 ﻿using DineFind.Models.ValueObjects;
-using DineFind.Models;
+using DineFind.Models.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

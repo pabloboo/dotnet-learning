@@ -2,12 +2,19 @@
 using DineFind.Models.Entities;
 using DineFind.Services;
 using System.Collections.Generic;
+using DineFind.Repositories;
 
 namespace DineFind.Controllers
 {
     public class UserController : Controller
     {
         private readonly UserPreferenceService _userPreferenceService;
+
+        // Default parameterless constructor
+        public UserController()
+        {
+            _userPreferenceService = new UserPreferenceService(new UserRepository(new Models.DineFindBdContext()));
+        }
 
         public UserController(UserPreferenceService userPreferenceService)
         {

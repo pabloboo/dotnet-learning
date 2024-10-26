@@ -1,0 +1,18 @@
+﻿@model DineFind.Models.ValueObjects.SearchCriteria
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Search", "Restaurant", FormMethod.Post))
+{
+    <div>
+        <label for="Cuisine">Cuisine</label>
+        @Html.TextBoxFor(m => m.Cuisine)
+    </div>
+    <div>
+        <label for="Location">Location</label>
+        @Html.TextBoxFor(m => m.Location)
+    </div>
+    <input type="submit" value="Search" class="btn btn-primary" />
+}

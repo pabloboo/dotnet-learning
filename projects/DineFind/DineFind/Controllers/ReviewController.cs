@@ -2,12 +2,19 @@
 using DineFind.Models.Entities;
 using DineFind.Services;
 using System.Collections.Generic;
+using DineFind.Repositories;
 
 namespace DineFind.Controllers
 {
     public class ReviewController : Controller
     {
         private readonly ReviewService _reviewService;
+
+        // Default parameterless constructor
+        public ReviewController()
+        {
+            _reviewService = new ReviewService(new ReviewRepository(new Models.DineFindBdContext()));
+        }
 
         public ReviewController(ReviewService reviewService)
         {

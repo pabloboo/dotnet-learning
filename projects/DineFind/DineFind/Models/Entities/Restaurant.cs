@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace DineFind.Models
+namespace DineFind.Models.Entities
 {
     public class Restaurant
     {

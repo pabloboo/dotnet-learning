@@ -95,5 +95,65 @@ namespace DineFind.Models
 
             base.OnModelCreating(modelBuilder);
         }
+
+        public void Seed()
+        {
+            // Check if the database already has data to prevent duplicating records
+            //if (!Cuisines.Any())
+            //{
+            //    // Example data for Cuisines
+            //    Cuisines.AddRange(new List<Cuisine>
+            //    {
+            //        new Cuisine { Name = "Italian" },
+            //        new Cuisine { Name = "Mexican" },
+            //        new Cuisine { Name = "Japanese" },
+            //        // Add more cuisines as needed
+            //    });
+            //    SaveChanges();
+            //}
+
+            if (!Restaurants.Any())
+            {
+                // Example data for Restaurants
+                Restaurants.AddRange(new List<Restaurant>
+                {
+                    new Restaurant { 
+                        Name = "Mario's Italian Bistro", 
+                        Address = "123 Main St, Anytown, USA",
+                        Cuisine = new Cuisine() { Name = "Italian", Description = "" } ,
+                        Rating = 4.5,
+                        Location = new Coordinates() { Latitude = 40.7128, Longitude = 74.0060 }
+                    },
+                    new Restaurant { 
+                        Name = "Casa Mexicana",
+                        Address = "456 Elm St, Anytown, USA",
+                        Cuisine = new Cuisine() { Name = "Mexican", Description = "" },
+                        Rating = 4.0,
+                        Location = new Coordinates() { Latitude = 40.7128, Longitude = 74.0060 }
+                    },
+                    new Restaurant {
+                        Name = "Sushi Palace",
+                        Address = "789 Oak St, Anytown, USA",
+                        Cuisine = new Cuisine() { Name = "Japanese", Description = "" },
+                        Rating = 4.2,
+                        Location = new Coordinates() { Latitude = 40.7128, Longitude = 74.0060 }
+                    },
+                    // Add more restaurants with details
+                });
+                SaveChanges();
+            }
+
+            if (!Users.Any())
+            {
+                // Example data for Users
+                Users.AddRange(new List<User>
+                {
+                    new User { Username = "John Doe", Email = "john@example.com" },
+                    new User { Username = "Jane Smith", Email = "jane@example.com" },
+                    // Add more users if needed
+                });
+                SaveChanges();
+            }
+        }
     }
 }

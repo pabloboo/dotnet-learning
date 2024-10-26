@@ -1,0 +1,14 @@
+﻿@model IEnumerable<DineFind.Models.Entities.Review>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Reviews</h2>
+<ul>
+    @foreach (var review in Model)
+    {
+        <li>@review.Content - Rating: @review.Rating.Score</li>
+    }
+</ul>
+@Html.ActionLink("Add a Review", "Create", new { restaurantId = Model.FirstOrDefault()?.RestaurantId })

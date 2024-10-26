@@ -1,0 +1,21 @@
+﻿@model DineFind.Models.Entities.Review
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add Review</h2>
+
+@using (Html.BeginForm("Create", "Review", FormMethod.Post))
+{
+    @Html.HiddenFor(m => m.RestaurantId)
+    <div>
+        <label for="Rating">Rating</label>
+        @Html.TextBoxFor(m => m.Rating.Score)
+    </div>
+    <div>
+        <label for="Text">Review</label>
+        @Html.TextAreaFor(m => m.Content)
+    </div>
+    <input type="submit" value="Submit Review" class="btn btn-primary" />
+}

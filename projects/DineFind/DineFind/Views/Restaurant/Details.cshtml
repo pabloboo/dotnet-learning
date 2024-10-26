@@ -1,0 +1,19 @@
+﻿@model DineFind.Models.Entities.Restaurant
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Name</h2>
+<p><strong>Address:</strong> @Model.Address</p>
+<p><strong>Cuisine:</strong> @Model.Cuisine.Name</p>
+@*<p><strong>Average Rating:</strong> @Model.AverageRating</p>*@
+
+<h3>Reviews</h3>
+@Html.ActionLink("Add Review", "Create", "Review", new { restaurantId = Model.Id }, null)
+<ul>
+    @foreach (var review in Model.Reviews)
+    {
+        <li>@review.Content - Rating: @review.Rating.Score</li>
+    }
+</ul>

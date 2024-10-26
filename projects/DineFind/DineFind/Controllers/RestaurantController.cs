@@ -4,6 +4,7 @@ using DineFind.Models.Entities;
 using DineFind.Models.ValueObjects;
 using DineFind.Services;
 using System.Collections.Generic;
+using DineFind.Repositories;
 
 namespace DineFind.Controllers
 {
@@ -11,6 +12,17 @@ namespace DineFind.Controllers
     {
         private readonly SearchService _searchService;
         private readonly RestaurantRecommendationService _recommendationService;
+
+        // Default parameterless constructor
+        public RestaurantController()
+        {
+
+            _searchService = new SearchService(new RestaurantRepository(new Models.DineFindBdContext()));
+            _recommendationService = new RestaurantRecommendationService(
+                new RestaurantRepository(new Models.DineFindBdContext()),
+                new UserRepository(new Models.DineFindBdContext())
+            );
+        }
 
         public RestaurantController(SearchService searchService, RestaurantRecommendationService recommendationService)
         {

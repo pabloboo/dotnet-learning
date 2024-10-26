@@ -21,14 +21,29 @@ namespace DineFind.Repositories
             return _context.Restaurants.Find(id);
         }
 
+        //public List<Restaurant> Search(SearchCriteria criteria)
+        //{
+        //    return _context.Restaurants
+        //        .Where(r =>
+        //            (criteria == null || criteria.Cuisine == null || string.IsNullOrEmpty(criteria.Cuisine.Name) || r.Cuisine.Name == criteria.Cuisine.Name) &&
+        //            (criteria.Location == null || (r.Location.Latitude.Equals(criteria.Location.Latitude)) && (r.Location.Longitude.Equals(criteria.Location.Longitude)))
+        //        )
+        //        .ToList();
+        //}
+
         public List<Restaurant> Search(SearchCriteria criteria)
         {
-            return _context.Restaurants
-                .Where(r =>
-                    (string.IsNullOrEmpty(criteria.Cuisine.Name) || r.Cuisine.Name == criteria.Cuisine.Name) &&
-                    (criteria.Location == null || r.Location.Equals(criteria.Location))
-                )
-                .ToList();
+            var query = _context.Restaurants.AsQueryable();
+
+            if (criteria.Cuisine != null && !string.IsNullOrEmpty(criteria.Cuisine.Name))
+            {
+                query = query.Where(r => r.Cuisine.Name == criteria.Cuisine.Name);
+            }
+
+            // Apply other criteria as needed
+
+            return query.ToList();
         }
+
     }
 }
